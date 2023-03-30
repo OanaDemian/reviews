@@ -18,4 +18,9 @@ describe ('band pass filter ', () => {
     const soundwaves = [40];
     expect(soundwavesFilter(soundwaves)).toEqual([40]);
   });
+
+  it ('returns 40 for an array containing one sound of 10 Hz frequency', () => {
+    const soundwaves = [10];
+    expect(soundwavesFilter(soundwaves)).toEqual([40]);
+  });
 });
