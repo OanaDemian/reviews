@@ -35,4 +35,9 @@ describe ('band pass filter ', () => {
   });
 
 
+  it ('filters an array of 5 frequencies with values between 10 and 12000', () => {
+    const soundwaves = [10, 40, 80, 12000, 1500];
+    expect(soundwavesFilter(soundwaves)).toEqual([40, 40, 80, 1000, 1000]);
+  });
+
 });
