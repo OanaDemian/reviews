@@ -40,8 +40,14 @@ describe ('band pass filter ', () => {
     expect(soundwavesFilter(soundwaves)).toEqual([40, 40, 80, 1000, 1000]);
   });
 
-  it ('throws an error if the array contains anything but numbers', () => {
+  it ('throws an error if the array contains anything but numeric values', () => {
     const soundwaves = [10, 40, 'sounds', 12000, false];
     expect(soundwavesFilter(soundwaves)).toEqual('array must contain only numberic values');
   });
+  it ('has a minimum default value', () => {
+    const soundwaves = [10, 20];
+    const min = 40;
+    expect(soundwavesFilter(soundwaves, min)).toEqual([40, 40]);
+  });
+
 });
