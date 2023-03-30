@@ -14,13 +14,18 @@ describe ('band pass filter ', () => {
     expect(soundwavesFilter(soundwaves)).toEqual('no frequencies have been supplied');
   });
 
-  it ('returns 40 for an array containing one sound of 40 Hz frequency', () => {
+  it ('returns an array containing a value of 40 for an array containing one sound of 40 Hz frequency', () => {
     const soundwaves = [40];
     expect(soundwavesFilter(soundwaves)).toEqual([40]);
   });
 
-  it ('returns 40 for an array containing one sound of 10 Hz frequency', () => {
+  it ('returns an array containing a value of 40 for an array containing one sound of 10 Hz frequency', () => {
     const soundwaves = [10];
     expect(soundwavesFilter(soundwaves)).toEqual([40]);
+  });
+
+  it ('returns an array containing a value of 1000 for an array containing one sound of 1500 Hz frequency', () => {
+    const soundwaves = [1500];
+    expect(soundwavesFilter(soundwaves)).toEqual([1000]);
   });
 });
