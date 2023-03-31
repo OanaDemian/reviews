@@ -3,6 +3,10 @@ const soundwavesFilter = (soundwaves, min, max) => {
     throw new Error('no frequencies have been supplied');
   };
 
+  if (!isNumber(min) || !isNumber(max)) {
+    throw new Error('min and max must be numberic values');
+  }
+
   if (!soundwaves.every(isNumber)) {
     throw new Error('array must contain only numberic values');
   }

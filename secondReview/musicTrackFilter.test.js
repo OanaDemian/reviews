@@ -4,8 +4,9 @@
 // default upper limit:1000 
 // default lower limit:40
 // empty array: 'no frequencies have been supplied'
-// check if values are integers
+// check if values are numbers - integers
 //next: practice on smth fun, like building a game in the console
+//check if min and max are numbers - integers
 
 const soundwavesFilter = require ('./musicTrackFilter');
 describe ('band pass filter ', () => {
@@ -54,6 +55,17 @@ describe ('band pass filter ', () => {
       throw new Error('soundwavesFilter should have thrown an error');
     } catch (error) {
       expect(error.message).toBe('array must contain only numberic values');
+    }
+  });
+
+  it ('throws an error if min or max are non numeric values', () => {
+    const soundwaves = [10, 40, 50, 12000, 3000];
+    try {
+      soundwavesFilter(soundwaves, 'ten', true);
+      // Fail test if above expression doesn't throw anything.
+      throw new Error('soundwavesFilter should have thrown an error');
+    } catch (error) {
+      expect(error.message).toBe('min and max must be numberic values');
     }
   });
 });
