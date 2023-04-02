@@ -1,14 +1,5 @@
-// band pass filter 
-// input: soundwaves: an array of frequencies, each frequency is an integer
-// output: soundwaves: an array of the same length
-// default upper limit:1000 
-// default lower limit:40
-// empty array: 'no frequencies have been supplied'
-// check if values are numbers - integers
-//next: practice on smth fun, like building a game in the console
-//check if min and max are numbers - integers
-
 const soundwavesFilter = require ('./musicTrackFilter');
+
 describe ('band pass filter ', () => {
   it ('should throw Error with message \'no frequencies have been supplied\' when the input is an empty array', () => {
     const soundwaves = [];

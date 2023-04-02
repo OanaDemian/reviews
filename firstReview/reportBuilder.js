@@ -1,32 +1,22 @@
-class ReportBuilder{
-  constructor(studentResults) {
-    this.studentResults = studentResults;
-  }
 
-  getReport = () => {
-    const resultsArray = this.studentResults.split(' ');
-    if (this.studentResults == '') {
-      return 'no results given';
-    } else if (resultsArray.length === 1) {
-      return `${resultsArray[0]}: ${resultsArray.length}\n`
-    } else if (resultsArray.length > 1) {
-      return countResultOccurances();
-    } else {
-      return this.studentResults;
-    }
-  }
+// school reports company
+// help teachers find out how students did on tests
+// input: comma separated strings (one string with many values)
+// build a programme that generates a report from this string
+// "no result given" - if empty string
+// Input: "Green, Green, Red, Amber, Red"
+// Output: "Green: 2\nAmber: 1\nRed: 2""
 
-  countResultOccurances = () => {
-    const results = this.studentResults.split(' ');
-    const count = {};
-    return results.forEach((result) => {
-      if (count[result]) {
-        count[result] += 1;
-      } else {
-        count[result] = 1;
-      }
-      return `${result}: ${count.result}\n`;
-    });
-  }
+const reportBuilder = (studentResults) => {
+  if (studentResults === '') {
+    throw new Error('no results given');
+  };
+
+  if (typeof studentResults !== 'string') {
+    throw new Error('input must be text');
+  };
+  return studentResults;
+
 }
-module.exports = ReportBuilder;
+
+module.exports = reportBuilder;
