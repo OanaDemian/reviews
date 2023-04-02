@@ -22,8 +22,12 @@ describe('reportBulider', () =>{
     }
   });
 
-  it('prints the report', () => {
+  it('prints the report for an input of one value', () => {
     expect(reportBuilder('Green')).toBe('Green');
+  })
+
+  it ('prints each value of the string on a new line for an input of two values', () => {
+    expect(reportBuilder('Amber,Green')).toBe('Amber\nGreen');   
   })
 
 })

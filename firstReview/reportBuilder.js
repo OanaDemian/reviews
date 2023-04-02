@@ -15,7 +15,8 @@ const reportBuilder = (studentResults) => {
   if (typeof studentResults !== 'string') {
     throw new Error('input must be text');
   };
-  return studentResults;
+  const results = studentResults.split(',').join('\n');
+  return results;
 
 }
 
