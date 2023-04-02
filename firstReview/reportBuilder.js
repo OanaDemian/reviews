@@ -7,6 +7,7 @@
 // Input: "Green, Green, Red, Amber, Red"
 // Output: "Green: 2\nAmber: 1\nRed: 2""
 // test if word is not red, green or amber
+//split, trim, downcase
 
 const reportBuilder = (studentResults) => {
   if (studentResults === '') {
@@ -18,17 +19,21 @@ const reportBuilder = (studentResults) => {
   };
 
   const results = studentResults.trim().split(', ');
+  const filteredResults = results.filter((word) => 
+    (word === 'Red' || word === 'Amber' || word === 'Green')
+  );
 
-  const filtered = Object.entries(countOccurrences(results)).map(([key, value]) => {
+  const eachResultOccurences = Object.entries(countOccurrences(filteredResults)).map(([key, value]) => {
     return `${key}: ${value}\n`; 
   }).join('');
-  return filtered;
+  
+  return eachResultOccurences;
 }
 
 const countOccurrences = (arr) => {
-  return arr.reduce((accumulator, currentValue) => {
-    accumulator[currentValue] = accumulator[currentValue] + 1 || 1
-    return accumulator;
+  return arr.reduce((eachOccurance, currentValue) => {
+    eachOccurance[currentValue] = eachOccurance[currentValue] + 1 || 1
+    return eachOccurance;
   }, {});
 }
 

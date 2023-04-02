@@ -21,6 +21,11 @@ describe('reportBulider', () =>{
     }
   });
 
+  it('excludes values different from Red, Green or Amber', () => {
+    const report = 'Green, Amber, zebra, horse, Red';
+    expect(reportBuilder(report)).toBe('Green: 1\nAmber: 1\nRed: 1\n');
+  });
+
   it('prints the report for an input of one value', () => {
     expect(reportBuilder('Green')).toBe('Green: 1\n');
   })
