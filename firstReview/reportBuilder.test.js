@@ -38,4 +38,7 @@ describe('reportBulider', () =>{
     expect(reportBuilder('Amber, Green, Red, Red')).toBe('Amber: 1\nGreen: 1\nRed: 2\n');   
   })
 
+  it ('formats output to capitalised value', () => {
+    expect(reportBuilder('Amber, green, red, Red')).toBe('Amber: 1\nGreen: 1\nRed: 2\n');  
+  })
 })

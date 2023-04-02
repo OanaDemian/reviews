@@ -7,7 +7,7 @@
 // Input: "Green, Green, Red, Amber, Red"
 // Output: "Green: 2\nAmber: 1\nRed: 2""
 // test if word is not red, green or amber
-//split, trim, downcase
+// split, trim, downcase
 
 const reportBuilder = (studentResults) => {
   if (studentResults === '') {
@@ -18,15 +18,16 @@ const reportBuilder = (studentResults) => {
     throw new Error('input must be text');
   };
 
-  const results = studentResults.trim().split(', ');
+  const results = studentResults.toLowerCase().replaceAll(' ', '').split(',');
+  console.log(results);
   const filteredResults = results.filter((word) => 
-    (word === 'Red' || word === 'Amber' || word === 'Green')
+    (word === 'red' || word === 'amber' || word === 'green')
   );
 
   const eachResultOccurences = Object.entries(countOccurrences(filteredResults)).map(([key, value]) => {
-    return `${key}: ${value}\n`; 
+    return `${capitaliseFirstLetter(key)}: ${value}\n`; 
   }).join('');
-  
+
   return eachResultOccurences;
 }
 
@@ -37,4 +38,8 @@ const countOccurrences = (arr) => {
   }, {});
 }
 
+const capitaliseFirstLetter = (word) => {
+  const formattedWord = word.charAt(0).toUpperCase() + word.slice(1);
+  return formattedWord;
+}
 module.exports = reportBuilder;
