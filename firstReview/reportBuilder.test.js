@@ -26,11 +26,11 @@ describe('reportBulider', () =>{
   })
 
   it ('prints each value on a new line for an input of two values', () => {
-    expect(reportBuilder('Amber,Green')).toBe('Amber: 1\nGreen: 1\n');   
+    expect(reportBuilder('Amber, Green')).toBe('Amber: 1\nGreen: 1\n');   
   })
 
   it ('prints each value, followed by : and its number of occurnces in the text on a new line', () => {
-    expect(reportBuilder('Amber,Green,Red,Red')).toBe('Amber: 1\nGreen: 1\nRed: 2\n');   
+    expect(reportBuilder('Amber, Green, Red, Red')).toBe('Amber: 1\nGreen: 1\nRed: 2\n');   
   })
 
 })

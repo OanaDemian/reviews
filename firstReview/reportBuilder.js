@@ -17,7 +17,7 @@ const reportBuilder = (studentResults) => {
     throw new Error('input must be text');
   };
 
-  const results = studentResults.split(',');
+  const results = studentResults.trim().split(', ');
 
   const filtered = Object.entries(countOccurrences(results)).map(([key, value]) => {
     return `${key}: ${value}\n`; 
