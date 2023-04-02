@@ -1,5 +1,4 @@
 const reportBuilder = require('./reportBuilder');
-const ReportBuilder = require('./reportBuilder');
 
 describe('reportBulider', () =>{
   it('throws error no results given if no string is provided', () => {
@@ -23,11 +22,15 @@ describe('reportBulider', () =>{
   });
 
   it('prints the report for an input of one value', () => {
-    expect(reportBuilder('Green')).toBe('Green');
+    expect(reportBuilder('Green')).toBe('Green: 1\n');
   })
 
-  it ('prints each value of the string on a new line for an input of two values', () => {
-    expect(reportBuilder('Amber,Green')).toBe('Amber\nGreen');   
+  it ('prints each value on a new line for an input of two values', () => {
+    expect(reportBuilder('Amber,Green')).toBe('Amber: 1\nGreen: 1\n');   
+  })
+
+  it ('prints each value, followed by : and its number of occurnces in the text on a new line', () => {
+    expect(reportBuilder('Amber,Green,Red,Red')).toBe('Amber: 1\nGreen: 1\nRed: 2\n');   
   })
 
 })
